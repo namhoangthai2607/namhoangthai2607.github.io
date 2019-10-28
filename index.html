@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--    Page  Basics-->
+    <title>Thai Nam Hoang</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Thai Nam Hoang">
+    <meta name="description" content="UI/UX designer at ChanceMap and Media Producer at VACl">
+    <meta name="theme-color" content="#FEFEFE">
+    
+    <!--    Mobile Specific Metas-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--    Font-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    
+    <!--    Style-->
+    <style>
+        *{
+            font-family: 'Raleway', sans-serif;
+        }
+    </style>
+    
+    <!--    CSS-->
+    <link rel="stylesheet" href="main.css">
+    
+    <!--    Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    
+    <!--    JavaScript-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <!--    Favicon-->
+    <link rel="icon" type="image/png" href="./icon/favicon.png" sizes="32x32">
+</head> 
+    
+<body>
+    <!--    Script-->
+    <div id="particles-js"></div>
+    <script src="./scripts/play.js"></script>
+    <script src="./scripts/particles.js"></script>
+    <script src="./scripts/app.js"></script>
+    
+    <!--    Age Calculation-->
+    <script>
+        window.onload = () => {
+            document.getElementById('copyright').innerText += ` ${new Date().getFullYear()}`;
+            const birthdate = new Date('02/18/2001');
+            const currentdate = new Date();
+            const age = (currentdate.getTime() - birthdate.getTime()) / (1000 * 3600 * 24 * 365);
+            const actualage = Math.floor(age);
+            document.getElementById('age').innerText = `${actualage}`;
+        };
+    </script>
+    
+    <!--    HoverState-->
+    <script>
+        $(document).ready(function () {
+            $("body").css("display", "none");
+            $("body").fadeIn(200);
+            $("a.transition").click(function (event) {
+                event.preventDefault();
+                linkLocation = this.href;
+                $("body").fadeOut(100, redirectPage);
+            });
+            function redirectPage() {
+                window.location = linkLocation;
+            }
+        });
+    </script>
+    
+    <!--    Audio-->
+    <audio id="thainam" src="assets/thainam.mp3"></audio>
+    
+    <div id="main">
+        <div id="greetingContainer">
+            <div id="greeting">Hello | Xin Chào</div>
+            <div id="name">My name is <img id="speaker" src="assets/speakerLight.svg" onclick="play()"/>Hoàng Thái Nam</div>
+            </div>
+            
+            <ul id="mainIcons">
+                <li><a href="assets/resume.pdf" target="_blank"><img src="assets/resumeLight.svg"/></a></li>
+                <li><a href="https://github.com/namhoangthai2607" target="_blank"><img src="assets/githubLogoLight.svg"/></a></li>
+                <li><a href="http://www.linkedin.com/in/thainamhoang/" target="_blank"><img src="assets/linkedinLogoLight.svg"/></a></li>
+                <li><a href="mailto:namhoangthai2607@gmail.com" target="_top"><img src="assets/emailLight.svg"/></a></li>
+            </ul>
+        </div>
+        
+        <figure id="selfContainer">
+            <img id="self" src="assets/thainam.png"/>
+            <figcaption>*Me in a end-of-highschool photo*</figcaption>
+        </figure>
+        
+        <div id="introduction">
+            <p>
+                I'm a <span id="age"></span>-year-old, Vietnam-born, American living code-blooded techie with quantum and machine learning interested.
+            </p>
+            <p>
+                I'm a <span class="important">freshman at <a href="https://beloit.edu" target="_blank">Beloit College.</a></span>
+            </p>
+            <p>
+                I'm also the <span class="important">UI/UX Designer of <a href="http://chancemap.com" target="_blank">ChanceMap</a></span>, a website that helps high school students find their extracurricular activities.
+            </p>
+        </div>
+        
+        <h2 id="copyright">Copyright &copy; <span class="important">Thai Nam Hoang</span></h2>
+    </div>
+</body>
+</html>
